@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
+import Work from "./pages/Work";
+import About from "./pages/About";
 
 const Shutter = styled.div`
   position: fixed;
@@ -103,15 +105,19 @@ const Name = styled.p`
 
 const Home = () => {
   return (
-    <Wrapper>
-      <Shutter></Shutter>
-      <Title>
-        <StyledLink to="/about">About</StyledLink>
-        <TitleH1>PORTFOLIO</TitleH1>
-        <StyledLink to="/work">Work</StyledLink>
-      </Title>
-      <Name>KouHuiRyong</Name>
-    </Wrapper>
+    <>
+      <Wrapper>
+        <Shutter></Shutter>
+        <Title>
+          <StyledLink to="/work">WORK</StyledLink>
+          <TitleH1>PORTFOLIO</TitleH1>
+          <StyledLink to="/about">ABOUT</StyledLink>
+        </Title>
+        <Name>KouHuiRyong</Name>
+      </Wrapper>
+      <Work />
+      <About />
+    </>
   );
 };
 

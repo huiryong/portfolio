@@ -1,71 +1,69 @@
 import React from "react";
 import { styled } from "styled-components";
+import WorkItem from "../components/WorkItem";
 
-const Wrapper = styled.section`
-  background-color: pink;
-  height: 100vh;
-  > h2 {
-    text-align: center;
-    border-bottom: 1px solid black;
-  }
-`;
-const WorkContent = styled.div`
-  display: flex;
-  padding: 60px;
-  > h2 {
-    text-align: center;
-    border-bottom: 1px solid black;
-  }
-`;
-const Text = styled.div`
-  width: 40%;
-  > h3 {
-    font-size: 60px;
-    margin-bottom: 30px;
-  }
-`;
-
-const ImgBlock = styled.div`
-  width: 60%;
-  > img {
-    width: 100%;
-    height: 80%;
-    object-fit: cover;
-  }
-`;
-
-const Website = styled.div``;
-const App = styled.div``;
-const Practice = styled.div``;
+const WorkItems = [
+  {
+    title: "website",
+    links: [
+      { url: "http://httpbin.org/status/200", name: "01" },
+      { url: "http://httpbin.org/json", name: "02" },
+    ],
+    img: "images/website.jpeg",
+    text: "仮想サイトの制作",
+  },
+  {
+    title: "app",
+    links: [{ url: "", name: "01" }],
+    img: "images/app.png",
+    text: "Reactを用いたポケモン図鑑アプリ",
+  },
+  {
+    title: "practice",
+    links: [
+      { url: "", name: "01" },
+      { url: "", name: "02" },
+    ],
+    img: "images/practice.png",
+    text: "その他模写やマークアップなど",
+  },
+];
 
 const Work = () => {
   return (
     <Wrapper>
-      <h2>Work</h2>
-      <WorkContent>
-        <Text>
-          <Website>
-            <h3>website</h3>
-            <p>仮想サイトの制作</p>
-            <a href="#">01</a>
-            <a href="#">02</a>
-          </Website>
-          <App>
-            <h3>app</h3>
-            <p>Reactを用いたアプリの制作</p>
-            <a href="#">01</a>
-          </App>
-          <Practice>
-            <h3>practice</h3>
-            <a href="#">その他、模写コーディングなど</a>
-          </Practice>
-        </Text>
-        <ImgBlock>
-          <img src="images/flower.jpg" alt="" />
-        </ImgBlock>
-      </WorkContent>
+      <h2>WORK</h2>
+      <Website>
+        {WorkItems.map((item, index) => {
+          return (
+            <WorkItem
+              key={index}
+              title={item.title}
+              links={item.links}
+              img={item.img}
+              text={item.text}
+            />
+          );
+        })}
+      </Website>
     </Wrapper>
   );
 };
+
+const Wrapper = styled.section`
+  margin: 150px;
+  > h2 {
+    text-align: center;
+    font-size: 50px;
+    padding-bottom: 100px;
+  }
+`;
+
+const Website = styled.div`
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default Work;
