@@ -4,6 +4,11 @@ import { styled } from "styled-components";
 const Wrapper = styled.section`
   background-color: pink;
   height: 1000px;
+  @media (max-width: 768px) {
+    height: 1500px;
+  }
+  @media (max-width: 768px) {
+  }
 `;
 
 const AboutContent = styled.div`
@@ -15,7 +20,20 @@ const AboutContent = styled.div`
     font-size: 50px;
     padding-bottom: 100px;
   }
+  @media (max-width: 768px) {
+    > h2 {
+      font-size: 40px;
+      padding-bottom: 100px;
+    }
+  }
+  @media (max-width: 375px) {
+    > h2 {
+      font-size: 30px;
+      padding-bottom: 80px;
+    }
+  }
 `;
+
 const Content = styled.div`
   padding-top: 10px;
   position: relative;
@@ -31,6 +49,14 @@ const Content = styled.div`
     position: absolute;
     top: 0;
     left: 50%;
+  }
+  @media (max-width: 768px) {
+    display: block;
+    &::after {
+      display: none;
+    }
+  }
+  @media (max-width: 768px) {
   }
 `;
 
@@ -48,12 +74,34 @@ const Name = styled.div`
     margin-top: 20px;
     font-size: 16px;
   }
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-right: 0px;
+  }
+  > h3 {
+    width: 200px;
+    font-size: 30px;
+  }
+  @media (max-width: 375px) {
+    > h3 {
+      width: 140px;
+      font-size: 20px;
+    }
+  }
 `;
 
 const Block = styled.div`
   width: 50%;
   padding-left: 20px;
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-left: 0px;
+    margin-top: 60px;
+  }
+  @media (max-width: 768px) {
+  }
 `;
+
 const BlobkContent = styled.div`
   margin-bottom: 40px;
   > h3 {
@@ -63,12 +111,24 @@ const BlobkContent = styled.div`
   > p {
     padding-left: 50px;
     line-height: 2;
+    word-wrap: break-word;
+  }
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+    > h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    > p {
+      padding-left: 30px;
+      line-height: 2;
+    }
   }
 `;
 
 const About = () => {
   return (
-    <Wrapper>
+    <Wrapper id="about">
       <AboutContent>
         <h2>ABOUT</h2>
         <Content>
@@ -78,7 +138,7 @@ const About = () => {
             <p>
               7年間幼稚園に勤務していましたが、子どもを抱っこし過ぎて腰を痛めたことから別業種に転職を決意、職業訓練を通してwebデザインやフロントエンドに興味を持ちました。
             </p>
-            <p>現在、ReactやStyled-Component、Next.jsを勉強中です。</p>
+            <p>現在、React,TypeScript,Styled-Component,Next.jsを勉強中です。</p>
             <p>
               日本で生まれ育ったので日本語ネイティブです。韓国語も話したり、読み書き可能です。
             </p>

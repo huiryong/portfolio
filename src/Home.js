@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 import Work from "./pages/Work";
 import About from "./pages/About";
+import AnchorLinkSmoothScroll from "react-anchor-link-smooth-scroll";
 
 const Shutter = styled.div`
   position: fixed;
@@ -28,7 +28,6 @@ const Shutter = styled.div`
   .content {
     animation: contentScale 2.6s forwards;
   }
-
   @keyframes byeShutter {
     70% {
       opacity: 1;
@@ -39,7 +38,6 @@ const Shutter = styled.div`
       z-index: -1;
     }
   }
-
   @keyframes shutterOpen {
     0% {
       width: 0;
@@ -58,7 +56,6 @@ const Shutter = styled.div`
       height: 100%;
     }
   }
-
   @keyframes contentScale {
     70% {
       transform: perspective(800px) scale(0.9) rotateX(15deg);
@@ -71,8 +68,14 @@ const Shutter = styled.div`
 
 const Wrapper = styled.section`
   background-color: pink;
-  height: 100vh;
+  height: 800px;
   font-family: "Darumadrop One", sans-serif;
+  @media (max-width: 768px) {
+    height: 600px;
+  }
+  @media (max-width: 375px) {
+    height: 400px;
+  }
 `;
 
 const Title = styled.div`
@@ -81,26 +84,51 @@ const Title = styled.div`
   align-items: center;
   padding-top: 25vh;
   padding-bottom: 100px;
-  gap: 100px;
+  gap: 70px;
+  @media (max-width: 768px) {
+    gap: 40px;
+  }
+  @media (max-width: 375px) {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10vh;
+    padding-bottom: 50px;
+  }
 `;
 
 const TitleH1 = styled.h1`
-  font-size: 80px;
+  font-size: 8vw;
   font-family: "Archivo Black", sans-serif;
+  @media (max-width: 768px) {
+  }
+  @media (max-width: 375px) {
+    order: 0;
+  }
 `;
 
-const StyledLink = styled(Link)`
+const StyledAnchorLink = styled(AnchorLinkSmoothScroll)`
   font-family: "Archivo Black", sans-serif;
-  font-size: 30px;
+  font-size: 3vw;
   color: black;
   &:hover {
     opacity: 0.5;
   }
+  @media (max-width: 768px) {
+  }
+  @media (max-width: 375px) {
+    order: 1;
+  }
 `;
+
 const Name = styled.p`
   font-family: "Pinyon Script", cursive;
-  font-size: 200px;
+  font-size: 8vw;
   text-align: center;
+  @media (max-width: 768px) {
+  }
+  @media (max-width: 375px) {
+    font-size: 50px;
+  }
 `;
 
 const Home = () => {
@@ -109,14 +137,18 @@ const Home = () => {
       <Wrapper>
         <Shutter></Shutter>
         <Title>
-          <StyledLink to="/work">WORK</StyledLink>
+          <StyledAnchorLink offset="100" href="#work">
+            WORK
+          </StyledAnchorLink>
           <TitleH1>PORTFOLIO</TitleH1>
-          <StyledLink to="/about">ABOUT</StyledLink>
+          <StyledAnchorLink offset="100" href="#about">
+            ABOUT
+          </StyledAnchorLink>
         </Title>
         <Name>KouHuiRyong</Name>
       </Wrapper>
-      <Work />
-      <About />
+      <Work id={"work"} />
+      <About id={"about"} />
     </>
   );
 };
