@@ -6,8 +6,8 @@ const WorkItems = [
   {
     title: "website",
     links: [
-      { url: "http://httpbin.org/status/200", name: "01" },
-      { url: "http://httpbin.org/json", name: "02" },
+      { url: "http://huiryong2.site/website01.html", name: "01" },
+      { url: "http://huiryong2.site/website02.html", name: "02" },
     ],
     img: "images/website.jpeg",
     text: "仮想サイトの制作",
@@ -21,11 +21,11 @@ const WorkItems = [
   {
     title: "practice",
     links: [
-      { url: "", name: "01" },
-      { url: "", name: "02" },
+      { url: "http://huiryong2.site/practice.html", name: "01" },
+      { url: "https://github.com/huiryong", name: "github" },
     ],
     img: "images/practice.png",
-    text: "その他模写やマークアップなど",
+    text: "その他",
   },
 ];
 
