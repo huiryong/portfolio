@@ -14,7 +14,7 @@ const WorkItems = [
   },
   {
     title: "app",
-    links: [{ url: "", name: "01" }],
+    links: [{ url: "http://huiryongapp.net/", name: "01" }],
     img: "images/app.png",
     text: "ポケモン図鑑アプリ",
   },
